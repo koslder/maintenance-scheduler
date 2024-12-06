@@ -1,7 +1,9 @@
 services:
+  # Backend Service
   - type: web
     name: my-mern-backend
     env: node
+    rootDirectory: backend  # Set root directory for backend
     buildCommand: npm install
     startCommand: npm run start
     healthCheckPath: /health
@@ -12,9 +14,11 @@ services:
         value: uKz2zkwWkw41p4tx
     plan: free
 
+  # Frontend Service
   - type: web
     name: my-mern-frontend
     env: static
+    rootDirectory: frontend  # Set root directory for frontend
     buildCommand: npm install && npm run build
     startCommand: serve -s build
     healthCheckPath: /health
