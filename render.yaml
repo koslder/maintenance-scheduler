@@ -18,7 +18,7 @@ services:
   - type: web
     name: my-mern-frontend
     env: static
-    rootDirectory: frontend  # Set root directory for frontend
+    rootDirectory: frontend  
     buildCommand: npm install && npm run build
     startCommand: serve -s build
     healthCheckPath: /health
