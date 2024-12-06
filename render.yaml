@@ -6,7 +6,7 @@ services:
     rootDirectory: backend  # Set root directory for backend
     buildCommand: npm install
     startCommand: npm run start
-    healthCheckPath: /health
+    healthCheckPath: /health  # Ensure this route is defined in your backend
     envVars:
       - key: MONGO_URI
         value: mongodb+srv://ecojedo:vjj3b0vIXxiAM6N5@cluster0.pmgff.mongodb.net
@@ -15,11 +15,8 @@ services:
     plan: free
 
   # Frontend Service
-  - type: web
+  - type: static
     name: my-mern-frontend
-    env: static
-    rootDirectory: frontend  
+    rootDirectory: frontend
     buildCommand: npm install && npm run build
-    startCommand: serve -s build
-    healthCheckPath: /health
-    plan: free
+    publishPath: build  # This points to the folder where your frontend is built
