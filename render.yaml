@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: my-mern-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm run start
+    healthCheckPath: /health
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://ecojedo:vjj3b0vIXxiAM6N5@cluster0.pmgff.mongodb.net
+      - key: SECRET_KEY
+        value: uKz2zkwWkw41p4tx
+    plan: free
+
+  - type: web
+    name: my-mern-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    startCommand: serve -s build
+    healthCheckPath: /health
+    plan: free
