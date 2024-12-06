@@ -3,10 +3,10 @@ services:
   - type: web
     name: my-mern-backend
     env: node
-    rootDirectory: backend  # Set root directory for backend
+    rootDirectory: login/backend
     buildCommand: npm install
-    startCommand: npm run start
-    healthCheckPath: /health  # Ensure this route is defined in your backend
+    startCommand: npm run dev
+    healthCheckPath: /health
     envVars:
       - key: MONGO_URI
         value: mongodb+srv://ecojedo:vjj3b0vIXxiAM6N5@cluster0.pmgff.mongodb.net
@@ -17,6 +17,6 @@ services:
   # Frontend Service
   - type: static
     name: my-mern-frontend
-    rootDirectory: frontend
+    rootDirectory: login/frontend
     buildCommand: npm install && npm run build
-    publishPath: build  # This points to the folder where your frontend is built
+    publishPath: build

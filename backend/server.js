@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const User = require('./models/employee.js');
 const jwt = require('jsonwebtoken');
-const SECRET_KEY = '${process.env.ACCESS_TOKEN_SECRET}';
+const SECRET_KEY = process.env.ACCESS_TOKEN_SECRET;
 const bodyParser = require('body-parser');
 const AC = require('./models/AC');
 const maintenanceEvent = require('./models/maintenanceEvent.js');
@@ -20,17 +20,16 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
-// MongoDB Connection
 mongoose
     .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch((err) => console.error('MongoDB connection error:', err));
 
-// Dashboard Route (Protected)
+// Routes
 app.get('/dashboard', authenticateToken, (req, res) => {
     res.json({
         message: `Welcome to your dashboard, ${req.user.username}`,
-        userId: req.user.id, // Include user ID
+        userId: req.user.id,
     });
 });
 
@@ -581,6 +580,10 @@ app.get('/api/ac/:acID/history', async (req, res) => {
 });
 
 
+// Health Check
+app.get('/health', (req, res) => {
+    res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
+});
 
 // Start the server
 const PORT = process.env.PORT || 5000;
