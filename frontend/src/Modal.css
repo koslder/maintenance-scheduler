@@ -1,0 +1,172 @@
+.closeButton {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.addButton {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #954cff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+form.input-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-form input,
+.select-ac {
+    font-size: 18px;
+    color: #424242 !important;
+    font-weight: 500;
+    margin: 10px 0;
+    min-height: 30px;
+    border-radius: 5px;
+    border: 1px solid;
+    padding: 0 10px;
+}
+
+/* FullCalendar's main container z-index */
+.fc {
+    z-index: 1;
+    /* Lower the z-index of FullCalendar */
+}
+
+/* Or adjust FullCalendar's specific parts */
+.fc-toolbar,
+.fc-daygrid-body {
+    z-index: 2;
+    /* Lower these parts as well */
+}
+
+.form-modal {
+    z-index: 1000;
+}
+
+.event-background {
+    background-color: #954cff;
+    color: white;
+    cursor: pointer;
+}
+
+.fc-daygrid-event-dot {
+    border: calc(var(--fc-daygrid-event-dot-width) / 2) solid #ff4c4c !important;
+}
+
+.event-completed .fc-daygrid-event-dot {
+    border: calc(var(--fc-daygrid-event-dot-width) / 2) solid #5dff4c !important;
+}
+
+.record-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/* Summary udapte */
+.summary-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-container form button {
+    width: 200px;
+    height: 50px;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.event-pending {
+    background-color: #954cff;
+    color: white;
+}
+
+.event-completed {
+    background-color: #e853fc;
+    color: white;
+}
+
+.input-form p {
+    margin: 0;
+    padding: 0;
+}
+
+/*  */
+
+.details-button {
+    padding-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+textarea#summary {
+    margin-bottom: 20px;
+}
+
+.record-container {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.history-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(31% - 20px);
+    /* 3 cards per row */
+    display: flex;
+    flex-direction: column;
+}
+
+.history-card-header {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.history-card-body {
+    margin-top: 10px;
+}
+
+.history-card ul {
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.history-card p {
+    margin: 5px 0;
+}
+
+.history-card strong {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .history-card {
+        width: 100%;
+        /* Full-width for smaller screens */
+    }
+}
